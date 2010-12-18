@@ -6,4 +6,4 @@ PRODUCT_COPY_FILES += $(LOCAL_PATH)/libGLESv1_CM_mali.so:system/lib/egl/libGLESv
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/libGLESv2_mali.so:system/lib/egl/libGLESv2_mali.so
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/libMali.so:system/lib/libMali.so
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/mali.ko:system/lib/mali.ko
-
+PRODUCT_COPY_FILES += $(LOCAL_PATH)/ump.ko:system/lib/ump.ko
