@@ -33,5 +33,13 @@ OVERRIDE_BUILT_MODULE_PATH := $(TARGET_OUT_INTERMEDIATE_LIBRARIES)
 include $(BUILD_PREBUILT)
 
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/egl.cfg:system/lib/egl/egl.cfg
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/mali.ko:system/lib/mali.ko
-PRODUCT_COPY_FILES += $(LOCAL_PATH)/ump.ko:system/lib/ump.ko
+
+file := $(TARGET_ROOT_OUT)/boot/mali.ko
+ALL_PREBUILT += $(file)
+$(file) : $(LOCAL_PATH)/mali.ko | $(ACP)
+	$(transform-prebuilt-to-target)
+
+file := $(TARGET_ROOT_OUT)/boot/ump.ko
+ALL_PREBUILT += $(file)
+$(file) : $(LOCAL_PATH)/ump.ko | $(ACP)
+	$(transform-prebuilt-to-target)
