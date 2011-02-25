@@ -34,12 +34,16 @@ include $(BUILD_PREBUILT)
 
 PRODUCT_COPY_FILES += $(LOCAL_PATH)/egl.cfg:system/lib/egl/egl.cfg
 
-file := $(TARGET_ROOT_OUT)/boot/mali.ko
-ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/mali.ko | $(ACP)
-	$(transform-prebuilt-to-target)
+include $(CLEAR_VARS)
+LOCAL_MODULE := mali.ko
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)/boot
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
 
-file := $(TARGET_ROOT_OUT)/boot/ump.ko
-ALL_PREBUILT += $(file)
-$(file) : $(LOCAL_PATH)/ump.ko | $(ACP)
-	$(transform-prebuilt-to-target)
+include $(CLEAR_VARS)
+LOCAL_MODULE := ump.ko
+LOCAL_MODULE_CLASS := ETC
+LOCAL_MODULE_PATH := $(TARGET_ROOT_OUT)/boot
+LOCAL_SRC_FILES := $(LOCAL_MODULE)
+include $(BUILD_PREBUILT)
