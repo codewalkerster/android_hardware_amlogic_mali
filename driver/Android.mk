@@ -5,6 +5,15 @@ ifeq ($(USING_MALI450), yes)
 TARGET=mali450
 endif
 
+USING_ION=yes
+ifeq ($(USING_ION), yes)
+TARGET_T=$(TARGET)
+TARGET:=$(TARGET_T)_ion
+endif
+
+$(error, $(TARGRT))
+
+ifneq ($(USING_ION),yes)
 include $(CLEAR_VARS)
 LOCAL_MODULE := libUMP
 LOCAL_MODULE_SUFFIX := .so
@@ -13,6 +22,7 @@ LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)
 LOCAL_SRC_FILES := $(TARGET)/libUMP.so
 include $(BUILD_PREBUILT)
+endif
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := libEGL_mali
