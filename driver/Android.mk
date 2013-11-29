@@ -3,6 +3,7 @@ LOCAL_PATH:=$(call my-dir)
 TARGET=mali450
 ifeq ($(USING_MALI450), yes)
 TARGET=mali450
+USING_ION=yes
 endif
 
 ifeq ($(USING_ION), yes)
