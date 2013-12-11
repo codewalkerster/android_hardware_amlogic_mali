@@ -1,6 +1,6 @@
 LOCAL_PATH:=$(call my-dir)
 
-TARGET=mali450
+TARGET=mali400
 ifeq ($(USING_MALI450), true)
 TARGET=mali450
 endif
