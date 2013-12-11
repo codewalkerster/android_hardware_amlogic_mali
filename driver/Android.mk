@@ -3,26 +3,12 @@ LOCAL_PATH:=$(call my-dir)
 TARGET=mali450
 ifeq ($(USING_MALI450), true)
 TARGET=mali450
-USING_ION=true
 endif
 
-ifeq ($(USING_ION), true)
 TARGET_T=$(TARGET)
 TARGET:=$(TARGET_T)_ion
-endif
 
 #$(error TARGET=$(TARGET) USING_ION=$(USING_ION))
-
-ifneq ($(USING_ION),true)
-include $(CLEAR_VARS)
-LOCAL_MODULE := libUMP
-LOCAL_MODULE_SUFFIX := .so
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)
-LOCAL_SRC_FILES := $(TARGET)/libUMP.so
-include $(BUILD_PREBUILT)
-endif
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := libEGL_mali
