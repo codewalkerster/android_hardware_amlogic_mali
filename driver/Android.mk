@@ -1,3 +1,19 @@
+
+MALI_LIB_PREBUILT=true
+#build in hardware/amlogic/ddk
+ifneq (,$(wildcard hardware/amlogic/ddk))
+MALI_LIB_PREBUILT=false
+endif
+#build in hardware/arm/gpu/ddk
+ifneq (,$(wildcard hardware/arm/gpu/ddk))
+MALI_LIB_PREBUILT=false
+endif
+#already in hardware/arm/gpu/lib
+ifneq (,$(wildcard hardware/arm/gpu/lib))
+MALI_LIB_PREBUILT=false
+endif
+
+ifeq ($(MALI_LIB_PREBUILT),true)
 LOCAL_PATH:=$(call my-dir)
 
 TARGET=mali400
@@ -26,3 +42,4 @@ LOCAL_MODULE_CLASS := ETC
 LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/egl
 LOCAL_SRC_FILES := $(LOCAL_MODULE)
 include $(BUILD_PREBUILT)
+endif
