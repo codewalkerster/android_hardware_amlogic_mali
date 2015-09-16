@@ -23,7 +23,7 @@ endif
 
 TARGET_T=$(TARGET)
 TARGET:=$(TARGET_T)_ion
-
+GPU_TARGET_PLATFORM ?= default_7a
 #$(error TARGET=$(TARGET) USING_ION=$(USING_ION))
 
 include $(CLEAR_VARS)
@@ -34,8 +34,10 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_CLASS := SHARED_LIBRARIES
 LOCAL_MODULE_PATH_32 := $(TARGET_OUT)/lib/egl
 LOCAL_MODULE_PATH_64 := $(TARGET_OUT)/lib64/egl
-LOCAL_SRC_FILES_arm   := $(TARGET)/libGLES_mali_$(TARGET_ARCH)_32.so
-LOCAL_SRC_FILES_arm64 := $(TARGET)/libGLES_mali_$(TARGET_ARCH)_64.so
+LOCAL_SRC_FILES_arm   := $(TARGET)/libGLES_mali_$(GPU_TARGET_PLATFORM)_32.so
+LOCAL_SRC_FILES_arm64 := $(TARGET)/libGLES_mali_$(GPU_TARGET_PLATFORM)_64.so
+#$(info src file is $(LOCAL_SRC_FILES_arm))
+#$(info src file is $(LOCAL_SRC_FILES_arm64))
 include $(BUILD_PREBUILT)
 
 include $(CLEAR_VARS)
