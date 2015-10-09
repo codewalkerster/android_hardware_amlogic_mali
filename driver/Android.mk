@@ -16,13 +16,13 @@ endif
 ifeq ($(MALI_LIB_PREBUILT),true)
 LOCAL_PATH:=$(call my-dir)
 
-TARGET=mali400
+TARGET:=$(GPU_TYPE)
+TARGET?=mali400
 ifeq ($(USING_MALI450), true)
 TARGET=mali450
 endif
 
-TARGET_T=$(TARGET)
-TARGET:=$(TARGET_T)_ion
+TARGET:=$(TARGET)_ion
 GPU_TARGET_PLATFORM ?= default_7a
 #$(error TARGET=$(TARGET) USING_ION=$(USING_ION))
 
