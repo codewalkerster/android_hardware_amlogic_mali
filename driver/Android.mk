@@ -23,7 +23,7 @@ TARGET=mali450
 endif
 
 TARGET:=$(TARGET)_ion
-GPU_TARGET_PLATFORM ?= default_7a
+GPU_TARGET_PLATFORM ?= default_8a
 #$(error TARGET=$(TARGET) USING_ION=$(USING_ION))
 
 include $(CLEAR_VARS)
